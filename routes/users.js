@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 const usersCtrl = require('../controllers/users');
 
+
 /*---------- Public Routes ----------*/
 
-
 /*---------- Protected Routes ----------*/
-router.use(require("../config/auth"));
-router.get("/", checkAuth, usersCtrl.index);
+router.use(require('../config/auth'));
+router.get('/', checkAuth, usersCtrl.index);
+router.get('/users/:id/profile', checkAuth, usersCtrl.showProfile);
+router.get('/:id', checkAuth, usersCtrl.getOne);
+router.put('/:id', checkAuth, usersCtrl.update);
+router.delete('/', checkAuth, usersCtrl.delete);
 
 
 /*---------- Auth Checker ----------*/
