@@ -6,7 +6,7 @@ const locationIDCtrl = require('../controllers/locationID');
 
 
 /*---------- Protected Routes ----------*/
-router.post('/', locationIDCtrl.getAttractionsForLocationName);
+router.post('/', locationIDCtrl.getLocation);
 router.use(require('../config/auth'));
 
 function checkAuth(req, res, next) {
