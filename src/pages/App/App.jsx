@@ -6,6 +6,7 @@ import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Users from "../Users/Users";
 import "./App.css";
+import { Container } from "semantic-ui-react";
 
 class App extends Component {
   state = {
@@ -24,7 +25,7 @@ class App extends Component {
   render() {
     const {user} = this.state
     return (
-      <>
+      <Container>
         <NavBar user={user} handleLogout={this.handleLogout} />
         <Route
           exact
@@ -60,7 +61,17 @@ class App extends Component {
           path="/users"
           render={() => (user ? <Users /> : <Redirect to="/login" />)}
         />
-      </>
+        {/* <Route
+          exact
+          path="/places/rating"
+          render={() => ()}
+        /> */}
+        {/* <Route
+          exact
+          path="/map"
+          render={() => ()}
+        /> */}
+      </Container>
     );
   }
 }
