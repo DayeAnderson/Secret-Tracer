@@ -10,7 +10,7 @@ class NavBar extends Component {
     const { activeItem } = this.state;
     return (
       <>
-        <Menu icon>
+        <Menu className="bottom fixed menu " secondary icon>
           <Menu.Item
             name="home"
             active={activeItem === "home"}
@@ -33,6 +33,13 @@ class NavBar extends Component {
             onClick={this.handleItemClick}
           >
             <Icon name="map" />
+          </Menu.Item>
+          <Menu.Item
+            name="profile"
+            active={activeItem === "profile"}
+            onClick={this.handleItemClick}
+          >
+            <Icon name="user circle outline" />
           </Menu.Item>
         </Menu>
       </>
