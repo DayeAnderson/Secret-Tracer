@@ -33,7 +33,7 @@ class App extends Component {
     // return top 10 of restaurants, top 10 of attractions to user
     const restaurants = await locationService.getTopLocations(this.state.user.location)
     this.setState({restaurants})
-    // console.log(restaurants)
+  
 
   }
 
@@ -46,7 +46,7 @@ class App extends Component {
           exact
           path="/"
           render={() => (
-            <Home />
+            <Home restaurants={this.state.restaurants}/>
           )}
         />
         <Route
