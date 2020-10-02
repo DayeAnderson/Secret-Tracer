@@ -1,19 +1,20 @@
 import React, { Component } from "react";
-import {Header, Button } from "semantic-ui-react";
-import { Icon,Search, Grid, Segment, Label } from "semantic-ui-react";
+import { Header, Button } from "semantic-ui-react";
+import { Icon, Search, Grid, Segment, Label } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import RestaurantQuickView from '../../components/RestaurantQuickView/RestaurantQuickView'
 
 class Home extends Component {
-  state = {};
+  state = {
+  };
 
-
-  // ComponentDidMount() We will grab local businesses to render them to the screen.
+  
 
   render() {
     return (
       <>
-      <SearchBar />
+        <SearchBar />
         <Header as="h2">Welcome to Covid Crusher!</Header>
         <Header as="h2">
           Our mission is to help you make safe and informed decisions when you
@@ -41,11 +42,12 @@ class Home extends Component {
           <Button secondary>Find a Business on the Map</Button>
         </Link>
 
-        {/* Section. 
-      These businesses are Crushing Covid!
-
-      Map through top rated local businesses and render the photo, business title, and star rating.
-    */}
+        <section>
+          <h1>hello</h1>
+          {this.props.restaurants.map(restaurant => (
+             <RestaurantQuickView details={restaurant}/>
+          ))}
+        </section>
       </>
     );
   }
