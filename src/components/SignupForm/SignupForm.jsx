@@ -63,6 +63,7 @@ class SignupForm extends Component {
                     iconPosition='left'
                     type="text"
                     autoComplete="off"
+                    placeholder='Name'
                     id="name"
                     value={name}
                     name="name"
