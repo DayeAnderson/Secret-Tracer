@@ -9,6 +9,7 @@ class SignupForm extends Component {
     email: "",
     password: "",
     passwordConf: "",
+    location: {}
   };
 
   handleChange = (e) => {
@@ -34,6 +35,17 @@ class SignupForm extends Component {
   isFormInvalid() {
     const { name, email, password, passwordConf } = this.state;
     return !(name && email && password === passwordConf);
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.setState({
+        location: {
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+        },
+      });
+    });
   }
 
   render() {
