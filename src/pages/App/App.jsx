@@ -8,9 +8,11 @@ import Users from "../Users/Users";
 import "./App.css";
 import { Container } from "semantic-ui-react";
 import Home from "../../pages/Home/Home"
+import ProfilePage from "../../pages/ProfilePage/ProfilePage"
 
 class App extends Component {
   state = {
+
     user: authService.getUser(),
   };
 
@@ -59,6 +61,11 @@ class App extends Component {
           exact
           path="/users"
           render={() => (user ? <Users /> : <Redirect to="/login" />)}
+        />
+        <Route 
+        exact
+        path="/profile"
+        render={() => (user ? <ProfilePage user={this.state.user}/> : <Redirect to="/login" />)}
         />
         {/* <Route
           exact

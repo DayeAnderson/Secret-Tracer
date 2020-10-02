@@ -9,6 +9,8 @@ const userSchema = new Schema(
 		name: String,
 		email: { type: String, required: true, lowercase: true, unique: true },
 		password: String,
+		rankings: {type: String, enum: ['Nervous Newbie', 'Hand Washing Hippie', 'Mask Maven', 'Sanitation Savage', 'Covid Crusher'],
+		default: 'Nervous Newbie'},
 		avatar: String,
 		location: {
 			type: Object,
