@@ -11,7 +11,7 @@ class Map extends Component {
   componentDidMount() {
     const H = window.H;
     const platform = new H.service.Platform({
-      apikey: `${process.env.HERE_KEY}`,
+      apikey: process.env.HERE_KEY,
     });
 
     const defaultLayers = platform.createDefaultLayers();
@@ -20,15 +20,15 @@ class Map extends Component {
       this.mapRef.current,
       defaultLayers.vector.normal.map,
       {
-        center: { lat: this.props.lat, lng: this.props.long },
+        center: { lat: this.props.location.lat, lng: this.props.location.long },
         zoom: 16,
         pixelRatio: window.devicePixelRatio || 1,
       }
     );
 
     // Map Group
-    const group = new H.map.Group();
-    map.addObject(group);
+    // const group = new H.map.Group();
+    // map.addObject(group);
 
     // Define a variable holding SVG mark-up that defines an icon image:
     const svgMarkup =
@@ -39,16 +39,16 @@ class Map extends Component {
       'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
       'fill="white">P</text></svg>';
 
-    const icon = new H.map.Icon(svgMarkup);
+    // const icon = new H.map.Icon(svgMarkup);
 
-    this.props.pets.forEach((pet, idx) => {
-      const coords = {
-        lat: `${pet.location.lat}`,
-        lng: `${pet.location.long}`,
-      };
-      const marker = new H.map.Marker(coords, { icon: icon });
-      group.addObject(marker);
-    });
+    // this.props.pets.forEach((pet, idx) => {
+    //   const coords = {
+    //     lat: `${pet.location.lat}`,
+    //     lng: `${pet.location.long}`,
+    //   };
+    //   const marker = new H.map.Marker(coords, { icon: icon });
+    //   group.addObject(marker);
+    // });
 
     this.setState({ map });
   }
