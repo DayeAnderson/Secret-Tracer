@@ -60,6 +60,7 @@ class SignupForm extends Component {
                 <Segment stacked>
                   <Form.Input
                     fluid icon='user'
+                    iconPosition='left'
                     type="text"
                     autoComplete="off"
                     id="name"
