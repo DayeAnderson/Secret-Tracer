@@ -1,31 +1,43 @@
-import React from 'react';
+import React, { Component } from "react";
+import { Icon, Menu } from "semantic-ui-react";
 
-const NavBar = ({ user, handleLogout }) => {
+class NavBar extends Component {
+  state = { activeItem: "" };
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+
+  render() {
+    const { activeItem } = this.state;
     return (
-    <>
-      {user ?
-        <nav>
-          <div className="nav-wrapper">
-            <ul id="nav-mobile" className="right">
-              <li><a href=" " className="nav-link">Welcome, {user.name}</a></li>
-              <li><a href="/users" className="nav-link">Users</a></li>
-              <li><a href=" " className="nav-link" onClick={handleLogout}>Log Out</a></li>
-            </ul>
-          </div>
-        </nav>
-      :
-        <nav>
-          <div className="nav-wrapper">
-            <ul id="nav-mobile" className="right">
-              <li><a href="/login" className="nav-link">Log In</a></li>
-              <li><a href="/users" className="nav-link">Users</a></li>
-              <li><a href="/signup" className="nav-link">Sign Up</a></li>
-            </ul>
-          </div>
-        </nav>
-      }
-    </>
-  )
+      <>
+        <Menu icon>
+          <Menu.Item
+            name="home"
+            active={activeItem === "home"}
+            onClick={this.handleItemClick}
+          >
+            <Icon name="home" />
+          </Menu.Item>
+
+          <Menu.Item
+            name="search"
+            active={activeItem === "search"}
+            onClick={this.handleItemClick}
+          >
+            <Icon name="search" />
+          </Menu.Item>
+
+          <Menu.Item
+            name="map"
+            active={activeItem === "map"}
+            onClick={this.handleItemClick}
+          >
+            <Icon name="map" />
+          </Menu.Item>
+        </Menu>
+      </>
+    );
+  }
 }
 
 export default NavBar;
