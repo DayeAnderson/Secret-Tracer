@@ -10,10 +10,7 @@ import { Container } from "semantic-ui-react";
 import Home from "../../pages/Home/Home"
 import ProfilePage from "../../pages/ProfilePage/ProfilePage"
 import * as locationService from "../../services/locationID"
-<<<<<<< HEAD
-=======
 import Map from "../../components/Map/Map"
->>>>>>> 5a4e86cfdc4ac0984132c3d9283417c90610a871
 import Restaurant from "../../pages/Restaurant/Restaurant"
 
 class App extends Component {
@@ -84,27 +81,18 @@ class App extends Component {
         path="/profile"
         render={() => (user ? <ProfilePage user={this.state.user}/> : <Redirect to="/login" />)}
         />
-        <Route 
-        exact
-        path="/restaurant"
-        render={() => (user ? <Restaurant user={this.state.user}/> : <Redirect to="/login" />)}
-        />
-        {/* <Route
-          exact
-          path="/places/rating"
-          render={() => ()}
-        /> */}
-        {/* <Route
+        
+        <Route
         render={({location}) => (
-          <Restaurant user={this.state.user} location={location}/>
+          <Restaurant user={this.state.user} loc={location}/>
         )}
         />
         
-        <Route
+        {/* <Route
           exact
           path="/map"
           render={() => <Map location={this.state.user.location} restaurants={this.state.restaurants}/>}
-        />
+        /> */}
       </Container>
     );
   }
