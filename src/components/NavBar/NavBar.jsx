@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Icon, Menu } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
   state = { activeItem: "" };
@@ -16,7 +17,13 @@ class NavBar extends Component {
             active={activeItem === "home"}
             onClick={this.handleItemClick}
           >
-            <Icon name="home" />
+            <Link
+              to={{
+                pathname: "/",
+              }}
+            >
+              <Icon name="home" />
+            </Link>
           </Menu.Item>
 
           <Menu.Item
@@ -24,7 +31,26 @@ class NavBar extends Component {
             active={activeItem === "search"}
             onClick={this.handleItemClick}
           >
-            <Icon name="search" />
+            <Link
+              to={{
+                pathname: "/search",
+              }}
+            >
+              <Icon name="search" />
+            </Link>
+          </Menu.Item>
+          <Menu.Item
+            name="add_review"
+            active={activeItem === "add_review"}
+            onClick={this.handleItemClick}
+          >
+            <Link
+              to={{
+                pathname: "/add-review",
+              }}
+            >
+              <Icon name="plus circle" />
+            </Link>
           </Menu.Item>
 
           <Menu.Item
@@ -32,14 +58,26 @@ class NavBar extends Component {
             active={activeItem === "map"}
             onClick={this.handleItemClick}
           >
-            <Icon name="map" />
+            <Link
+              to={{
+                pathname: "/map",
+              }}
+            >
+              <Icon name="map marker alternate" />
+            </Link>
           </Menu.Item>
           <Menu.Item
             name="profile"
             active={activeItem === "profile"}
             onClick={this.handleItemClick}
           >
-            <Icon name="user circle outline" />
+            <Link
+              to={{
+                pathname: "/profile",
+              }}
+            >
+              <Icon name="user circle outline" />
+            </Link>
           </Menu.Item>
         </Menu>
       </>
