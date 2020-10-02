@@ -39,15 +39,30 @@ class LoginPage extends Component {
           <Header as='h2' color='teal' textAlign='center'>
             <Image src='/logo.png' /> Log-in to your account
           </Header>
-          <Form size='large'>
+          <Form autoComplete="off" onSubmit={this.handleSubmit} size='large'>
             <Segment stacked>
-              <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+              <Form.Input 
+                fluid 
+                icon='user' 
+                iconPosition='left' 
+                placeholder='E-mail address' 
+                autoComplete="off"
+                id="email"
+                value={email}
+                name="email"
+                onChange={this.handleChange}
+              />
               <Form.Input
                 fluid
                 icon='lock'
                 iconPosition='left'
                 placeholder='Password'
                 type='password'
+                autoComplete="off"
+                id="password"
+                value={pw}
+                name="pw"
+                onChange={this.handleChange}
               />
 
               <Button color='teal' fluid size='large'>
@@ -56,7 +71,7 @@ class LoginPage extends Component {
             </Segment>
           </Form>
           <Message>
-            New to us? <a href='#'>Sign Up</a>
+            New to us? <a href='/signup'>Sign Up</a>
           </Message>
         </Grid.Column>
       </Grid>

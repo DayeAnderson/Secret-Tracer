@@ -108,7 +108,7 @@ class SignupForm extends Component {
                 </Segment>
               </Form>
               <Message>
-                <a href='/'>Cancel</a>
+                <a href='/login'>Cancel</a>
               </Message>
             </Grid.Column>
           </Grid>
