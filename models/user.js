@@ -15,6 +15,9 @@ const userSchema = new Schema(
 			default: null,
 		},
 		phoneNumber: String,
+		reviews: [{ type: Schema.Types.ObjectId, ref: 'Review'}],
+		score: Number
+		
 	},
 	{
 		timestamps: true,
