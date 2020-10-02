@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import authService from "../../services/authService";
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 class SignupForm extends Component {
   state = {
@@ -38,50 +39,67 @@ class SignupForm extends Component {
   render() {
     const { name, email, password, passwordConf } = this.state;
     return (
-      <div>
-        <h3>Sign Up</h3>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            autoComplete="off"
-            id="name"
-            value={name}
-            name="name"
-            onChange={this.handleChange}
-          />
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            autoComplete="off"
-            id="email"
-            value={email}
-            name="email"
-            onChange={this.handleChange}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="password"
-            value={password}
-            name="password"
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            autoComplete="off"
-            id="confirm"
-            value={passwordConf}
-            name="passwordConf"
-            onChange={this.handleChange}
-          />
-          <label htmlFor="confirm">Confirm Password</label>
-          <button disabled={this.isFormInvalid()}>Sign Up</button>
-          &nbsp;&nbsp;
-          <Link to="/">Cancel</Link>
-        </form>
-      </div>
+          <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            <Grid.Column style={{ maxWidth: 450 }}>
+              <Header as='h2' color='teal' textAlign='center'>
+                <Image src='/logo.png' /> Create an account
+              </Header>
+              <Form autoComplete="off" onSubmit={this.handleSubmit} size='large'>
+                <Segment stacked>
+                  <Form.Input
+                    fluid icon='user'
+                    type="text"
+                    autoComplete="off"
+                    id="name"
+                    value={name}
+                    name="name"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input 
+                    fluid icon='user' 
+                    iconPosition='left' 
+                    placeholder='E-mail address' 
+                    type="text"
+                    autoComplete="off"
+                    id="email"
+                    value={email}
+                    name="email"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    fluid
+                    icon='lock'
+                    id="password"
+                    value={password}
+                    iconPosition='left'
+                    autoComplete="off"
+                    placeholder='Password'
+                    type='password'
+                    name="password"
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    fluid
+                    icon='lock'
+                    id="confirm"
+                    value={passwordConf}
+                    iconPosition='left'
+                    autoComplete="off"
+                    placeholder='Confirm Password'
+                    type='password'
+                    name="passwordConf"
+                    onChange={this.handleChange}
+                  />
+                  <Button disabled={this.isFormInvalid()} color='teal' fluid size='large'>
+                    Sign Up
+                  </Button>
+                </Segment>
+              </Form>
+              <Message>
+                <a href='/'>Cancel</a>
+              </Message>
+            </Grid.Column>
+          </Grid>
     );
   }
 }
