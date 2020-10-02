@@ -20,7 +20,7 @@ class Home extends Component {
         <Grid textAlign="center" columns={1}>
           <Grid.Row>
             <Grid.Column>
-              <div >
+              <div>
                 <Link
                   to={{
                     pathname: "/login",
@@ -43,11 +43,15 @@ class Home extends Component {
           </Grid.Row>
         </Grid>
 
-        <section style={{marginTop: "30px"}}>
-          <h2>Restauraunt Results</h2>
-          {this.props.restaurants.map((restaurant) => (
-            <RestaurantQuickView details={restaurant} />
-          ))}
+        <section style={{ marginTop: "30px" }}>
+          <Grid>
+            <Grid.Column textAlign="center">
+              <h2>Restauraunt Results</h2>
+              {this.props.restaurants.map((restaurant) => (
+                <RestaurantQuickView details={restaurant} />
+              ))}
+            </Grid.Column>
+          </Grid>
         </section>
       </>
     );

@@ -10,6 +10,8 @@ import { Container } from "semantic-ui-react";
 import Home from "../../pages/Home/Home"
 import ProfilePage from "../../pages/ProfilePage/ProfilePage"
 import * as locationService from "../../services/locationID"
+import Map from "../../components/Map/Map"
+import Restaurant from "../../pages/Restaurant/Restaurant"
 
 class App extends Component {
   state = {
@@ -79,16 +81,19 @@ class App extends Component {
         path="/profile"
         render={() => (user ? <ProfilePage user={this.state.user}/> : <Redirect to="/login" />)}
         />
-        {/* <Route
-          exact
-          path="/places/rating"
-          render={() => ()}
-        /> */}
-        {/* <Route
+        <Route 
+        exact
+        path="/restaurant"
+        render={({location}) => (
+          <Restaurant user={this.state.user} location={location}/>
+        )}
+        />
+        
+        <Route
           exact
           path="/map"
-          render={() => ()}
-        /> */}
+          render={() => <Map location={this.state.user.location} restaurants={this.state.restaurants}/>}
+        />
       </Container>
     );
   }
