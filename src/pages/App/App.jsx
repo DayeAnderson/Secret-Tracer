@@ -8,10 +8,12 @@ import Users from "../Users/Users";
 import "./App.css";
 import { Container } from "semantic-ui-react";
 import Home from "../../pages/Home/Home"
+import * as locationService from "../../services/locationID"
 
 class App extends Component {
   state = {
     user: authService.getUser(),
+    restaurants: []
   };
 
   handleLogout = () => {
@@ -22,6 +24,16 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({ user: authService.getUser() });
   };
+
+  async componentDidMount() {
+    // get top locations based off of user location
+    // store them to database
+    // return top 10 of restaurants, top 10 of attractions to user
+    const restaurants = await locationService.getTopLocations(this.state.user.location)
+    this.setState({restaurants})
+    // console.log(restaurants)
+
+  }
 
   render() {
     const {user} = this.state
