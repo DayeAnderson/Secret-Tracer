@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Container, Header, Button } from "semantic-ui-react";
-import { Icon, Menu } from "semantic-ui-react";
+import {Header, Button } from "semantic-ui-react";
+import { Icon,Search, Grid, Segment, Label } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 class Home extends Component {
   state = {};
@@ -12,6 +13,7 @@ class Home extends Component {
   render() {
     return (
       <>
+      <SearchBar />
         <Header as="h2">Welcome to Covid Crusher!</Header>
         <Header as="h2">
           Our mission is to help you make safe and informed decisions when you
